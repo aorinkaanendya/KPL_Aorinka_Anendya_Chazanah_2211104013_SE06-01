@@ -9,15 +9,31 @@ class SayaTubeVideo
 
     public SayaTubeVideo(string title)
     {
+        if (string.IsNullOrEmpty(title) || title.Length > 200)
+            throw new ArgumentException("Judul video tidak boleh null dan maksimal 200 karakter.");
+
         Random random = new Random();
-        this.id = random.Next(10000, 99999); // 5-digit random ID
+        this.id = random.Next(10000, 99999);
         this.title = title;
         this.playCount = 0;
     }
 
     public void IncreasePlayCount(int count)
     {
-        playCount += count;
+        if (count < 0 || count > 25000000)
+            throw new ArgumentOutOfRangeException("Play count tidak boleh negatif dan maksimal 25.000.000.");
+
+        try
+        {
+            checked
+            {
+                playCount += count;
+            }
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Error: Terjadi overflow saat menambah play count.");
+        }
     }
 
     public int GetPlayCount()
@@ -32,9 +48,9 @@ class SayaTubeVideo
 
     public void PrintVideoDetails()
     {
-        Console.WriteLine("ID: " + id);
-        Console.WriteLine("Title: " + title);
-        Console.WriteLine("Play Count: " + playCount);
+        Console.WriteLine($"ID: {id}");
+        Console.WriteLine($"Title: {title}");
+        Console.WriteLine($"Play Count: {playCount}");
     }
 }
 
@@ -46,14 +62,23 @@ class SayaTubeUser
 
     public SayaTubeUser(string username)
     {
+        if (string.IsNullOrEmpty(username) || username.Length > 100)
+            throw new ArgumentException("Username tidak boleh null dan maksimal 100 karakter.");
+
         Random random = new Random();
-        this.id = random.Next(10000, 99999); // 5-digit random ID
+        this.id = random.Next(10000, 99999);
         this.Username = username;
         this.uploadedVideos = new List<SayaTubeVideo>();
     }
 
     public void AddVideo(SayaTubeVideo video)
     {
+        if (video == null)
+            throw new ArgumentNullException("Video yang ditambahkan tidak boleh null.");
+
+        if (video.GetPlayCount() >= int.MaxValue)
+            throw new ArgumentException("Play count video melebihi batas maksimum integer.");
+
         uploadedVideos.Add(video);
     }
 
@@ -69,10 +94,11 @@ class SayaTubeUser
 
     public void PrintAllVideoPlaycount()
     {
-        Console.WriteLine("User: " + Username);
-        for (int i = 0; i < uploadedVideos.Count; i++)
+        Console.WriteLine($"User: {Username}");
+        int maxPrint = Math.Min(uploadedVideos.Count, 8); // Maksimal print 8 video
+        for (int i = 0; i < maxPrint; i++)
         {
-            Console.WriteLine("Video " + (i + 1) + " judul: " + uploadedVideos[i].GetTitle());
+            Console.WriteLine($"Video {i + 1}: {uploadedVideos[i].GetTitle()}");
         }
     }
 }
@@ -81,27 +107,44 @@ class Program
 {
     static void Main()
     {
-        SayaTubeUser user = new SayaTubeUser("Aorinka");
-
-        string[] movieTitles = {
-            "Review Film Miracle in Cell oleh Aorinka",
-            "Review Film Laskar Pelangi oleh Aorinka",
-            "Review Film Dilan 1990 oleh Aorinka",
-            "Review Film Keluarga Cemara oleh Aorinka",
-            "Review Film Ada Apa Dengan Cinta oleh Aorinka",
-            "Review Film Susah Sinyal oleh Aorinka",
-            "Review Film Agak Laen oleh Aorinka",
-            "Review Film Home Sweet Loan oleh Aorinka",
-            "Review Film Dua Hati Biru oleh Aorinka",
-            "Review Film 13 Bom di Jakarta oleh Aorinka"
-        };
-
-        foreach (var title in movieTitles)
+        try
         {
-            SayaTubeVideo video = new SayaTubeVideo(title);
-            user.AddVideo(video);
-        }
+            SayaTubeUser user = new SayaTubeUser("Aorinka");
 
-        user.PrintAllVideoPlaycount();
+            string[] movieTitles = {
+                "Review Film Miracle in Cell oleh Aorinka",
+                "Review Film Laskar Pelangi oleh Aorinka",
+                "Review Film Dilan 1990 oleh Aorinka",
+                "Review Film Keluarga Cemara oleh Aorinka",
+                "Review Film Ada Apa Dengan Cinta oleh Aorinka",
+                "Review Film Susah Sinyal oleh Aorinka",
+                "Review Film Agak Laen oleh Aorinka",
+                "Review Film Home Sweet Loan oleh Aorinka",
+                "Review Film Dua Hati Biru oleh Aorinka",
+                "Review Film 13 Bom di Jakarta oleh Aorinka"
+            };
+
+            foreach (var title in movieTitles)
+            {
+                SayaTubeVideo video = new SayaTubeVideo(title);
+                user.AddVideo(video);
+            }
+
+            user.PrintAllVideoPlaycount();
+
+            // Uji exception dengan loop untuk memicu overflow
+            SayaTubeVideo testVideo = new SayaTubeVideo("Video Test Overflow");
+            for (int i = 0; i < 10; i++) // 10 kali untuk mempercepat overflow
+            {
+                testVideo.IncreasePlayCount(25000000);
+            }
+
+            testVideo.PrintVideoDetails();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Terjadi error: {ex.Message}");
+        }
     }
 }
