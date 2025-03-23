@@ -11,6 +11,7 @@ namespace jurnal_modul7
         static void Main(string[] args)
         {
             DataMahasiswa2211104013.ReadJSON();
+            TeamMembers2211104013.ReadJSON();
         }
     }
 }
