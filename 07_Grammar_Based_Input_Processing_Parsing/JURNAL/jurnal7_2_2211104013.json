@@ -1,0 +1,32 @@
+{
+  "members" : [
+    {
+       "firstName": "Fadhila",
+       "lastName": "Agil",
+       "gender": "Male",
+       "age": 21,
+       "nim": "2211104006"
+    },
+    {
+        "firstName": "Aorinka",
+        "lastName": "Anendya",
+        "gender": "Female",
+        "age": 22,
+        "nim": "2211104013"
+        },
+    {
+       "firstName": "Muhammad Abdul",
+       "lastName": "Aziz",
+       "gender": "Male",
+       "age": 21,
+       "nim": "2211104026"
+    },
+    {
+       "firstName": "Muhammad Luthfi",
+       "lastName": "Hamdani",
+       "gender": "Male",
+       "age": 21,
+       "nim": "2211104020"
+    }
+  ]
+}
