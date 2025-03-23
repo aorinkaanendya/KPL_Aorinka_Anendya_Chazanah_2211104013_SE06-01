@@ -1,0 +1,15 @@
+{
+   "firstName": "Aorinka",
+   "lastName": "Anendya",
+   "gender": "Female",
+   "age": 22,
+   "address": {
+       "streetAddress": "Tayem Timur",
+       "city": "Cilacap",
+       "state": "Central Java"
+   },
+   "courses": [
+       { "code": "CRI2C4", "name": "Konstruksi Perangkat Lunak" },
+       { "code": "CRI2XX", "name": "Nama Mata Kuliah" }
+   ]
+}
