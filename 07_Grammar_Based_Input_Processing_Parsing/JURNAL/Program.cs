@@ -12,6 +12,8 @@ namespace jurnal_modul7
         {
             DataMahasiswa2211104013.ReadJSON();
             TeamMembers2211104013.ReadJSON();
+            GlossaryItem2211104013.ReadJSON();
         }
     }
 }
+
