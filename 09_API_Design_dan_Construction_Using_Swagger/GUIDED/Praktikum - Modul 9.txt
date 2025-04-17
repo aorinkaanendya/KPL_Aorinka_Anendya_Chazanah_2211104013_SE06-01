@@ -1,0 +1,6 @@
+Nama    : Aorinka Anendya Chazanah
+NIM	    : 2211104013
+Kelas	: SE-06-01
+
+Link API:
+https://app.swaggerhub.com/apis/catatanaorin/AorinkaApi/1.0.0
