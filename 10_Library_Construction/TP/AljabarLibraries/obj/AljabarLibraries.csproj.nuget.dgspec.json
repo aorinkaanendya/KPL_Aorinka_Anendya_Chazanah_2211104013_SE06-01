@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\CODING\\tpmodul10_2211104013\\AljabarLibraries\\AljabarLibraries.csproj": {}
+    "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\KPL_Aorinka_Anendya_Chazanah_2211104013_SE06-01\\10_Library_Construction\\TP\\AljabarLibraries\\AljabarLibraries.csproj": {}
   },
   "projects": {
-    "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\CODING\\tpmodul10_2211104013\\AljabarLibraries\\AljabarLibraries.csproj": {
+    "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\KPL_Aorinka_Anendya_Chazanah_2211104013_SE06-01\\10_Library_Construction\\TP\\AljabarLibraries\\AljabarLibraries.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\CODING\\tpmodul10_2211104013\\AljabarLibraries\\AljabarLibraries.csproj",
+        "projectUniqueName": "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\KPL_Aorinka_Anendya_Chazanah_2211104013_SE06-01\\10_Library_Construction\\TP\\AljabarLibraries\\AljabarLibraries.csproj",
         "projectName": "AljabarLibraries",
-        "projectPath": "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\CODING\\tpmodul10_2211104013\\AljabarLibraries\\AljabarLibraries.csproj",
+        "projectPath": "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\KPL_Aorinka_Anendya_Chazanah_2211104013_SE06-01\\10_Library_Construction\\TP\\AljabarLibraries\\AljabarLibraries.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\CODING\\tpmodul10_2211104013\\AljabarLibraries\\obj\\",
+        "outputPath": "D:\\Backup Folder E\\KULIAH\\SEMESTER 6\\PRAK KONSTRUKSI\\KPL_Aorinka_Anendya_Chazanah_2211104013_SE06-01\\10_Library_Construction\\TP\\AljabarLibraries\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
